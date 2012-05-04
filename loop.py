@@ -2,9 +2,14 @@
 
 import dbus
 import sys
-import gobject
+try:
+    import gobject
+except ImportError:
+    from gi.repository import GObject
+    gobject = GObject
 import functools
 from dbus.mainloop.glib import DBusGMainLoop
+
 
 WPAS_DBUS_SERVICE = "fi.epitest.hostap.WPASupplicant"
 WPAS_DBUS_INTERFACE = "fi.epitest.hostap.WPASupplicant"
